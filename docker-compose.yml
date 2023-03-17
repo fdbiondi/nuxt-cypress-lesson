@@ -1,0 +1,14 @@
+version: '3.9'
+
+services:
+  cypress-test:
+    container_name: 'cypress-lessons'
+    build:
+      context: .
+      target: 'dev-stage'
+    volumes:
+      - '.:/usr/src/app'
+    ports:
+      - '3000:3000'
+    command: >
+      sh -c "yarn install && yarn dev --hostname 0.0.0.0"
